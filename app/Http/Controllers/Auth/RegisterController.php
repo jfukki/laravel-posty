@@ -34,6 +34,7 @@ class RegisterController extends Controller
 
         $user->save();
         
-        return view('auth.login');
+        auth()->attempt($req->only('email', 'password'));
+        return view('dashboard');
     }
 }

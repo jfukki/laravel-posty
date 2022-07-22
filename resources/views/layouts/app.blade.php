@@ -25,7 +25,7 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard</a>
+          <a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
         </li>
 
         <li class="nav-item">
@@ -34,20 +34,33 @@
       </ul>
 
       <ul class="navbar-nav  d-flex">
+        
+
+
+        @if(auth()->user())
+        
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Murtaza Don</a>
         </li>
+
+        
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" href="#">Logout</a>
         </li>
 
+        @else
         <li class="nav-item">
           <a class="nav-link" href="{{route('register')}}">Register</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <a class="nav-link" href="{{route('login')}}">Login</a>
         </li>
+         
+        @endif
+       
+
+        
 
       </ul>
 

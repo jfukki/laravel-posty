@@ -14,6 +14,19 @@ class LoginController extends Controller
 
     public function login(Request $req)
     {
-           
+        $this->validate($req, [
+
+            
+            'email' => 'required|email',
+          
+            'password' => 'required',
+        ]);
+
+        if(! auth()->attempt($req->only('email', 'password')))
+        {
+                return back()->with('status', "Invalid Login Credentials");
+        }
+
+        return redirect()->route('dashboard');
     }
 }

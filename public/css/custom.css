@@ -39,3 +39,9 @@
     color: red;
     font-weight: 400;
 }
+
+.logout-btn
+{
+    border-radius: 10px;
+    margin-top:4px;
+}

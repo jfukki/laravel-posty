@@ -45,7 +45,11 @@
 
         
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          
+          <form action="{{route('logout')}}" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-sm btn-danger logout-btn" href="">Logout</button>
+          </form>
         </li>
 
         @else

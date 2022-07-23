@@ -22,19 +22,54 @@
                 @foreach($posts as $post)
                     
                     <div class="card-body">
-                    <h5 class="card-title">{{$post->user->name}}</h5>
-                    <p class="card-text">{{$post->body}} <br> 
-                    <small>{{$post->created_at->diffForHumans()}}</small>
-                    </p>
-                    
+                        <h5 class="card-title">{{$post->user->name}}</h5>
+                        <p class="card-text">{{$post->body}} <br> 
+                        <small>{{$post->created_at->diffForHumans()}}</small>
+                        </p>
+                        
+                        
+                    </div>
+                    <div class="row">
+                            @if(!$post->likedBy(auth()->user()))
+                            <div class="col-md-1">
+                         
+                                <form action="{{ route('post.likes', $post->id) }}" style="padding:0px;margin-left:10px;" method="POST">
+                                    @csrf
+                                    <button type="submit" class="post-like-btn">Like</button>
+                                </form>
+                           </div>
+
+                             @else
+
+                             <div class="col-md-1" style="padding:0px;margin-left:10px;">
+                             
+                                <form action="{{ route('post.likes', $post->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="post-unlike-btn">Unlike</button>
+                                </form>
+                           </div>
+
+                             @endif
+                        
+
+                        
+
+                     <div class="col-md-2"  >
+                             
+                              <p>{{$post->likes->count()}} {{Str::plural('Like', $post->likes->count() )}}</p>
+                     </div>
+                        
+                    </div>
+                        
+                  
                     <hr>
-            </div>
                 @endforeach
 
                 @else
                     <p>no posts here</p>
                 @endif
-                
+             
             </div>
         </div>
     </div>

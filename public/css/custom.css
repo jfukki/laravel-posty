@@ -61,3 +61,20 @@
     border-radius: 10px;
     margin-top:4px;
 }
+
+.post-unlike-btn
+{
+    background-color: transparent;
+    color:black;
+    border:1px solid rgba(27, 26, 26, 0.904);
+    border-radius:20px;
+   
+}
+
+.post-like-btn
+{
+    background-color: transparent;
+    color:black;
+    border:1px solid rgba(96, 221, 148, 0.904);
+    border-radius:20px;
+}

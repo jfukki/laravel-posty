@@ -29,7 +29,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Post</a>
+          <a class="nav-link" href="{{route('posts')}}">Post</a>
         </li>
       </ul>
 
@@ -40,7 +40,7 @@
         @if(auth()->user())
         
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Murtaza Don</a>
+          <a class="nav-link active" aria-current="page" href="#">{{auth()->user()->name}}</a>
         </li>
 
         

@@ -9,7 +9,9 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('posts.index');
+        $posts = Post::all()->sortByDesc('created_at');
+
+        return view('posts.index', ['posts'=>$posts]);
     }
 
     public function store(Request $req)

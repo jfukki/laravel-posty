@@ -30,4 +30,10 @@ class PostController extends Controller
         // return redirect()->route('dashboard');
         return back();
     }
+
+    public function destroy(Post $post)
+    {
+        Post::where('id', $post->id)->delete();
+        return back();
+    }
 }

@@ -78,3 +78,9 @@
     border:1px solid rgba(96, 221, 148, 0.904);
     border-radius:20px;
 }
+
+.btn-rounded
+{
+    border-radius: 20px !important;
+    padding: 2px 6px 2px 6px !important;
+}

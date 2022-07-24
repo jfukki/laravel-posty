@@ -52,8 +52,17 @@
 
                              @endif
                         
-
-                        
+                         @if($post->ownedBy(auth()->user()))
+                         <div class="col-md-1" style="padding:0px;margin-left:10px;">
+                             
+                             <form action="{{ route('post.delete', $post->id) }}" method="POST">
+                                 @csrf
+                                 @method('DELETE')
+                                 <button type="submit" class="btn btn-outline-danger btn-rounded ">Delete</button>
+                             </form>
+                       </div>
+                     
+                         @endif
 
                      <div class="col-md-2"  >
                              

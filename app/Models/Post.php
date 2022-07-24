@@ -31,4 +31,9 @@ class Post extends Model
         return $this->likes->contains('user_id', $user->id);
         // returns true or flase
     }
+
+    public function ownedBy(User $user)
+    {
+        return $user->id === $this->user_id;
+    }
 }
